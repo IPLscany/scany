@@ -110,9 +110,7 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
 
             //first save enhanced picture, if picture is not enhanced, save cropped picture, otherwise nothing to do
             val pic = enhancedPicture
-            val pic2 = enhancedPicture
-            val pic3 = enhancedPicture
-
+            
             if (null != pic) {
                 val file1 = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.pdf")
                 val outStream = FileOutputStream(file1)
@@ -122,13 +120,13 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
 
                 val file2 = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.png")
                 val outStream2 = FileOutputStream(file2)
-                pic2.compress(Bitmap.CompressFormat.PNG, 100, outStream2)
+                //pic.compress(Bitmap.CompressFormat.PNG, 100, outStream2)
                 outStream2.flush()
                 outStream2.close()
 
                 /*val file3 = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.jpeg")
                 val outStream3 = FileOutputStream(file3)
-                pic3.compress(Bitmap.CompressFormat.JPEG, 100, outStream3)
+                //pic.compress(Bitmap.CompressFormat.JPEG, 100, outStream3)
                 outStream3.flush()
                 outStream3.close()*/
 
@@ -151,8 +149,8 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
 
             } else {
                 val cropPic = croppedBitmap
-                val cropPic2 = croppedBitmap
-                val cropPic3 = croppedBitmap
+                //val cropPic2 = croppedBitmap
+                //val cropPic3 = croppedBitmap
                 if (null != cropPic && null != cropPic2 && null != cropPic3) {
                     val file1 = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.pdf")
                     val outStream = FileOutputStream(file1)
@@ -162,13 +160,13 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
 
                     val file2 = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.png")
                     val outStream2 = FileOutputStream(file2)
-                    cropPic2.compress(Bitmap.CompressFormat.PNG, 100, outStream2)
+                    //cropPic2.compress(Bitmap.CompressFormat.PNG, 100, outStream2)
                     outStream2.flush()
                     outStream2.close()
 
                     /*val file3 = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.jpeg")
                     val outStream3 = FileOutputStream(file3)
-                    cropPic3.compress(Bitmap.CompressFormat.JPEG, 100, outStream3)
+                    //cropPic3.compress(Bitmap.CompressFormat.JPEG, 100, outStream3)
                     outStream3.flush()
                     outStream3.close()*/
 
@@ -184,8 +182,8 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
                     document.writeTo(FileOutputStream(file1))
                     document.close()
                     cropPic.recycle()
-                    cropPic2.recycle()
-                    cropPic3.recycle()
+                    //cropPic2.recycle()
+                    //cropPic3.recycle()
 
                     addImageToGallery(file2.absolutePath, this.context) //Commented as we don't want the images in the gallery.
                     //addImageToGallery(file3.absolutePath, this.context) //Commented as we don't want the images in the gallery.
