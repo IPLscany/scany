@@ -54,7 +54,7 @@ class HomeViewController: UIViewController, ImageScannerControllerDelegate {
 
         let fileName = randomString(length:10);
         let filePath: URL = directory.appendingPathComponent(fileName + ".png")!
-        let filePath2: URL = directory.appendingPathComponent(fileName + ".jpg")!
+        //let filePath2: URL = directory.appendingPathComponent(fileName + ".jpg")!
         let filePath3: URL = directory.appendingPathComponent(fileName + ".pdf")!
 
         do {
@@ -69,7 +69,7 @@ class HomeViewController: UIViewController, ImageScannerControllerDelegate {
                 print("File does not exist")
             }      
 
-            // for .jpeg
+            /*// for .jpeg
             let fileManager2 = FileManager.default            
 
             // Check if file exists
@@ -78,7 +78,7 @@ class HomeViewController: UIViewController, ImageScannerControllerDelegate {
                 try fileManager2.removeItem(atPath: filePath2.path)
             } else {
                 print("File does not exist")
-            }
+            }*/
             
         // for .pdf below..
         // Create an empty PDF document
@@ -118,24 +118,15 @@ class HomeViewController: UIViewController, ImageScannerControllerDelegate {
 */
 
         do {
-            try data.write(to: filePath)
-            try data.write(to: filePath2)
-            return filePath.path + "\n" + filePath2.path + "\n" + filePath3.path
+            try data.write(to: filePath)    // for .png
+            //try data.write(to: filePath2)   // for .jpg
+            //return filePath.path + "\n" + filePath2.path + "\n" + filePath3.path
+            return filePath.path + "\n" + filePath3.path
             
         } catch {
             print(error.localizedDescription)
             return nil
         }
-
-        // for .jpeg
-       /*do {
-            try data.write(to: filePath2)
-            return filePath2.path
-        } catch {
-            print(error.localizedDescription)
-            return nil
-        }*/
-
     }
     
 

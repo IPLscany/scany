@@ -110,6 +110,9 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
 
             //first save enhanced picture, if picture is not enhanced, save cropped picture, otherwise nothing to do
             val pic = enhancedPicture
+            val pic2 = enhancedPicture
+            val pic3 = enhancedPicture
+
             if (null != pic) {
                 val file1 = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.pdf")
                 val outStream = FileOutputStream(file1)
@@ -119,15 +122,15 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
 
                 val file2 = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.png")
                 val outStream2 = FileOutputStream(file2)
-                //pic.compress(Bitmap.CompressFormat.PNG, 100, outStream2)
+                pic2.compress(Bitmap.CompressFormat.PNG, 100, outStream2)
                 outStream2.flush()
                 outStream2.close()
 
-                val file3 = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.jpeg")
+                /*val file3 = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.jpeg")
                 val outStream3 = FileOutputStream(file3)
-                //pic.compress(Bitmap.CompressFormat.JPEG, 100, outStream3)
+                pic3.compress(Bitmap.CompressFormat.JPEG, 100, outStream3)
                 outStream3.flush()
-                outStream3.close()
+                outStream3.close()*/
 
                 // Create a PdfDocument with a page of the same size as the image
                 val document: PdfDocument = PdfDocument()
@@ -142,9 +145,9 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
                 document.close()
 
                 addImageToGallery(file2.absolutePath, this.context) //Commented as we don't want the images in the gallery.
-                addImageToGallery(file3.absolutePath, this.context) //Commented as we don't want the images in the gallery.
+                //addImageToGallery(file3.absolutePath, this.context) //Commented as we don't want the images in the gallery.
                 //Toast.makeText(context, "picture saved, path: ${file1.absolutePath}", Toast.LENGTH_SHORT).show()
-                return file1.absolutePath + "," + file2.absolutePath + "," + file3.absolutePath
+                return file1.absolutePath + "," + file2.absolutePath// + "," + file3.absolutePath
 
             } else {
                 val cropPic = croppedBitmap
@@ -163,11 +166,11 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
                     outStream2.flush()
                     outStream2.close()
 
-                    val file3 = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.jpeg")
+                    /*val file3 = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.jpeg")
                     val outStream3 = FileOutputStream(file3)
                     cropPic3.compress(Bitmap.CompressFormat.JPEG, 100, outStream3)
                     outStream3.flush()
-                    outStream3.close()
+                    outStream3.close()*/
 
                     // Create a PdfDocument with a page of the same size as the image
                     val document: PdfDocument = PdfDocument()
@@ -185,11 +188,11 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
                     cropPic3.recycle()
 
                     addImageToGallery(file2.absolutePath, this.context) //Commented as we don't want the images in the gallery.
-                    addImageToGallery(file3.absolutePath, this.context) //Commented as we don't want the images in the gallery.
+                    //addImageToGallery(file3.absolutePath, this.context) //Commented as we don't want the images in the gallery.
                     //addImageToGallery(file.absolutePath, this.context) //Commented as we don't want the images in the gallery.
                     //Toast.makeText(context, "picture saved, path: ${file.absolutePath}", Toast.LENGTH_SHORT).show()
                     
-                    return file1.absolutePath + "," + file2.absolutePath + "," + file3.absolutePath
+                    return file1.absolutePath + "," + file2.absolutePath// + "," + file3.absolutePath
                 }
             }
         }
