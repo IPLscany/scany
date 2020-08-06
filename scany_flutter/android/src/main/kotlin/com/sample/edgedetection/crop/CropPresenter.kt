@@ -109,88 +109,92 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
             }
 
             //first save enhanced picture, if picture is not enhanced, save cropped picture, otherwise nothing to do
-            val pic = enhancedPicture
-            
-            if (null != pic) {
-                val file1 = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.pdf")
-                val outStream = FileOutputStream(file1)
-                pic.compress(Bitmap.CompressFormat.PNG, 100, outStream)
-                outStream.flush()
-                outStream.close()
+            val pic_pdf = enhancedPicture
+            val pic_png = enhancedPicture
+            //val pic_jpg = enhancedPicture
 
-                val file2 = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.png")
-                val outStream2 = FileOutputStream(file2)
-                //pic.compress(Bitmap.CompressFormat.PNG, 100, outStream2)
-                outStream2.flush()
-                outStream2.close()
+            if (null != pic_pdf && null != pic_png) { //&& null != pic_jpg) {
+                val file_pdf = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.pdf")
+                val outStream_pdf = FileOutputStream(file_pdf)
+                pic_pdf.compress(Bitmap.CompressFormat.PNG, 100, outStream_pdf)
+                outStream_pdf.flush()
+                outStream_pdf.close()
 
-                /*val file3 = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.jpeg")
-                val outStream3 = FileOutputStream(file3)
-                //pic.compress(Bitmap.CompressFormat.JPEG, 100, outStream3)
-                outStream3.flush()
-                outStream3.close()*/
+                val file_png = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.png")
+                val outStream_png = FileOutputStream(file_png)
+                pic_png.compress(Bitmap.CompressFormat.PNG, 100, outStream_png)
+                outStream_png.flush()
+                outStream_png.close()
+
+                /*val file_jpg = File(dir, "enhance_${SystemClock.currentThreadTimeMillis()}.jpeg")
+                val outStream_jpg = FileOutputStream(file_jpg)
+                pic_jpg.compress(Bitmap.CompressFormat.JPEG, 100, outStream_jpg)
+                outStream_jpg.flush()
+                outStream_jpg.close()*/
 
                 // Create a PdfDocument with a page of the same size as the image
                 val document: PdfDocument = PdfDocument()
-                val pageInfo: PdfDocument.PageInfo  = PdfDocument.PageInfo.Builder(pic.width, pic.height, 1).create()
+                val pageInfo: PdfDocument.PageInfo  = PdfDocument.PageInfo.Builder(pic_pdf.width, pic_pdf.height, 1).create()
                 val page: PdfDocument.Page  = document.startPage(pageInfo)
 
                 // Draw the bitmap onto the page
                 val canvas: Canvas = page.canvas
-                canvas.drawBitmap(pic, 0f, 0f, null)
+                canvas.drawBitmap(pic_pdf, 0f, 0f, null)
                 document.finishPage(page)
-                document.writeTo(FileOutputStream(file1))
+                document.writeTo(FileOutputStream(file_pdf))
                 document.close()
 
-                addImageToGallery(file2.absolutePath, this.context) //Commented as we don't want the images in the gallery.
-                //addImageToGallery(file3.absolutePath, this.context) //Commented as we don't want the images in the gallery.
-                //Toast.makeText(context, "picture saved, path: ${file1.absolutePath}", Toast.LENGTH_SHORT).show()
-                return file1.absolutePath + "," + file2.absolutePath// + "," + file3.absolutePath
+                addImageToGallery(file_png.absolutePath, this.context) //Commented as we don't want the images in the gallery.
+                //addImageToGallery(file_jpg.absolutePath, this.context) //Commented as we don't want the images in the gallery.
+                //Toast.makeText(context, "picture saved, path: ${file_pdf.absolutePath}", Toast.LENGTH_SHORT).show()
+                return file_pdf.absolutePath + "," + file_png.absolutePath// + "," + file_jpg.absolutePath
 
             } else {
-                val cropPic = croppedBitmap
-                //val cropPic2 = croppedBitmap
-                //val cropPic3 = croppedBitmap
-                if (null != cropPic && null != cropPic2 && null != cropPic3) {
-                    val file1 = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.pdf")
-                    val outStream = FileOutputStream(file1)
-                    cropPic.compress(Bitmap.CompressFormat.PNG, 100, outStream)
-                    outStream.flush()
-                    outStream.close()
+                val cropPic_pdf = croppedBitmap
+                val cropPic_png = croppedBitmap
+                //val cropPic_jpg = croppedBitmap
+                if (null != cropPic_pdf && null != cropPic_png){// && null != cropPic_jpg) {
+                    val file_pdf = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.pdf")
+                    val outStream_pdf = FileOutputStream(file_pdf)
+                    cropPic_pdf.compress(Bitmap.CompressFormat.PNG, 100, outStream_pdf)
+                    outStream_pdf.flush()
+                    outStream_pdf.close()
 
-                    val file2 = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.png")
-                    val outStream2 = FileOutputStream(file2)
-                    //cropPic2.compress(Bitmap.CompressFormat.PNG, 100, outStream2)
-                    outStream2.flush()
-                    outStream2.close()
+                    val file_png = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.png")
+                    val outStream_png = FileOutputStream(file_png)
+                    cropPic_png.compress(Bitmap.CompressFormat.PNG, 100, outStream_png)
+                    outStream_png.flush()
+                    outStream_png.close()
 
-                    /*val file3 = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.jpeg")
-                    val outStream3 = FileOutputStream(file3)
-                    //cropPic3.compress(Bitmap.CompressFormat.JPEG, 100, outStream3)
-                    outStream3.flush()
-                    outStream3.close()*/
+                    /*val file_jpg = File(dir, "crop_${SystemClock.currentThreadTimeMillis()}.jpeg")
+                    val outStream_jpg = FileOutputStream(file_jpg)
+                    cropPic_jpg.compress(Bitmap.CompressFormat.JPEG, 100, outStream_jpg)
+                    outStream_jpg.flush()
+                    outStream_jpg.close()*/
 
                     // Create a PdfDocument with a page of the same size as the image
                     val document: PdfDocument = PdfDocument()
-                    val pageInfo: PdfDocument.PageInfo  = PdfDocument.PageInfo.Builder(cropPic.width, cropPic.height, 1).create()
+                    val pageInfo: PdfDocument.PageInfo  = PdfDocument.PageInfo.Builder(cropPic_pdf.width, cropPic_pdf.height, 1).create()
                     val page: PdfDocument.Page  = document.startPage(pageInfo)
 
                     // Draw the bitmap onto the page
                     val canvas: Canvas = page.canvas
-                    canvas.drawBitmap(cropPic, 0f, 0f, null)
+                    canvas.drawBitmap(cropPic_pdf, 0f, 0f, null)
                     document.finishPage(page)
-                    document.writeTo(FileOutputStream(file1))
+                    document.writeTo(FileOutputStream(file_pdf))
                     document.close()
-                    cropPic.recycle()
-                    //cropPic2.recycle()
-                    //cropPic3.recycle()
+                    
+                    cropPic_pdf.recycle()
+                    cropPic_png.recycle()
+                    //cropPic_jpg.recycle()
 
-                    addImageToGallery(file2.absolutePath, this.context) //Commented as we don't want the images in the gallery.
-                    //addImageToGallery(file3.absolutePath, this.context) //Commented as we don't want the images in the gallery.
-                    //addImageToGallery(file.absolutePath, this.context) //Commented as we don't want the images in the gallery.
+                    addImageToGallery(file_png.absolutePath, this.context) //Commented as we don't want the images in the gallery.
+                    //addImageToGallery(file_jpg.absolutePath, this.context) //Commented as we don't want the images in the gallery.
+                    
                     //Toast.makeText(context, "picture saved, path: ${file.absolutePath}", Toast.LENGTH_SHORT).show()
                     
-                    return file1.absolutePath + "," + file2.absolutePath// + "," + file3.absolutePath
+                    //return file_pdf.absolutePath + "," + file_png.absolutePath + "," + file_jpg.absolutePath
+                    return file_pdf.absolutePath + "," + file_png.absolutePath
                 }
             }
         }
