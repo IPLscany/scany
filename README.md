@@ -17,19 +17,19 @@ Flutter developed by Google is a cross-platform framework that helps developers 
 - [Authors](#authors)
 
 ## Quick-Start
-1. Download Flutter, Android Studio and Visual Studio Code
-[https://ohjinjin.github.io/flutter/start-flutter/]<br/>
+1. Download Flutter, Android Studio and Visual Studio Code<br/>
+You can [https://ohjinjin.github.io/flutter/start-flutter/]<br/>
 
-2. Clone this repository
+2. Clone this repository<br/>
 ~~~
 git clone https://github.com/IPLscany/scany.git
 ~~~
 
-3. Open Scany folder on Visual Studio Code
+3. Open Scany folder on Visual Studio Code<br/>
 
-4. Select your device(must be a smart devices equipped with ios or android, not emulator)
+4. Select your device(must be a smart devices equipped with ios or android, not emulator)<br/>
 
-5. Start Debugging
+5. Start Debugging<br/>
 
 ## Demo
 1. ios<br/>
