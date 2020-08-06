@@ -1,4 +1,4 @@
-# 📱🧾📄scany
+# 📱 scany 🧾📄
 
 ~~~
 scan + anywhere = scany
@@ -37,15 +37,23 @@ git clone https://github.com/IPLscany/scany.git
 
 ### 5. Start Debugging<br/>
 <br/>
-<br/><br/>
+<br/>
 
 ## Demo
 ### 1. ios<br/>
-(image or gif)
+
+<p align="center">
+  <img src="https://github.com/IPLscany/scany/blob/master/scany_ios.gif"/>
+</p>
+
 <br/>
 
 ### 2. android<br/>
-(image or git)
+
+<p align="center">
+  <img src="https://github.com/IPLscany/scany/blob/master/scany_android.gif"/>
+</p>
+
 <br/>
 
 ## Authors
