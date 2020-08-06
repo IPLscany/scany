@@ -39,6 +39,12 @@ git clone https://github.com/IPLscany/scany.git
 <br/>
 <br/>
 
+## How to check files stored in IOS internal storage <br/>
+
+(Running XCode)<br/>
+Window -> devices and simulators -> Installed APP -> App select ->setting click -> download container -> save ->  right click on the saved file -> view package contents
+<br/>
+
 ## Demo
 ### 1. ios<br/>
 
@@ -55,6 +61,7 @@ git clone https://github.com/IPLscany/scany.git
 </p>
 
 <br/>
+
 
 ## Authors
 * Dong-Woo, Lee<br/>
