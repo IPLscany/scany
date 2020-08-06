@@ -4,9 +4,11 @@
 scan + anywhere = scany
 ~~~
 
-Scany is a gorgeous app that will turn your handout prints into digital documents anytime, anywhere.😃👌🏽 
-We use Flutter to develop Scany.
-Flutter developed by Google is a cross-platform framework that helps developers create high-quality native interfaces for both iOS and Android.
+Scany is a gorgeous app that will turn your handout prints into digital documents anytime, anywhere.😃👌🏽<br/>
+
+We use Flutter to develop Scany.<br/>
+
+Flutter developed by Google is a cross-platform framework that helps developers create high-quality native interfaces for both iOS and Android.<br/>
 
 ## Table of contents
 
@@ -30,10 +32,10 @@ git clone https://github.com/IPLscany/scany.git
 5. Start Debugging
 
 ## Demo
-1. ios
+1. ios<br/>
 (image or gif)
 
-2. android
+2. android<br/>
 (image or git)
 
 ## Authors
