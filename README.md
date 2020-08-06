@@ -1,4 +1,4 @@
-# scany
+# 📱🧾📄scany
 
 ~~~
 scan + anywhere = scany
