@@ -18,7 +18,7 @@ Flutter developed by Google is a cross-platform framework that helps developers 
 
 ## Quick-Start
 1. Download Flutter, Android Studio and Visual Studio Code<br/>
-You can [https://ohjinjin.github.io/flutter/start-flutter/]<br/>
+You can refer to [this](https://ohjinjin.github.io/flutter/start-flutter/) and follow along.<br/>
 
 2. Clone this repository<br/>
 ~~~
