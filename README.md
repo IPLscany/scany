@@ -20,10 +20,16 @@ Flutter developed by Google is a cross-platform framework that helps developers 
 
 ## Quick-Start
 ### 1. Download Flutter, Android Studio and Visual Studio Code<br/>
-You can refer to [this](https://ohjinjin.github.io/flutter/start-flutter/) and follow along.<br/>
+- Download Flutter [HERE](https://flutter.dev/docs/get-started/install/windows)<br/>
+- Download Android Studio [HERE](https://developer.android.com/studio)<br/>
+- Download Visual Studio Code [HERE](https://code.visualstudio.com/download)<br/>
+
+You can refer to [this](https://ohjinjin.github.io/flutter/start-flutter/) and follow along.(in KOR)<br/>
 <br/>
 
 ### 2. Clone this repository<br/>
+clone this repository on your local file system with instruction below.<br/>
+
 ~~~
 git clone https://github.com/IPLscany/scany.git
 ~~~
