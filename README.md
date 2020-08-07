@@ -73,5 +73,6 @@ Window -> devices and simulators -> Installed APP -> App select ->setting click 
 * Dong-Woo, Lee<br/>
 * Geum-Joo, Ko<br/>
 * Jeong-Yoon, Joo<br/>
+[https://github.com/JOLLA99]<br/>
 * Jin-Seon, Oh<br/>
 [https://ohjinjin.github.io/](https://ohjinjin.github.io/)<br/>
